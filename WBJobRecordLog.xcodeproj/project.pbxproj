@@ -1,0 +1,360 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C1CEE7FC21D39D4900B79700 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE7FB21D39D4900B79700 /* AppDelegate.m */; };
+		C1CEE7FF21D39D4900B79700 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE7FE21D39D4900B79700 /* ViewController.m */; };
+		C1CEE80421D39D4C00B79700 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1CEE80321D39D4C00B79700 /* Assets.xcassets */; };
+		C1CEE80721D39D4C00B79700 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1CEE80521D39D4C00B79700 /* LaunchScreen.storyboard */; };
+		C1CEE80A21D39D4C00B79700 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE80921D39D4C00B79700 /* main.m */; };
+		C1CEE81921D39D7100B79700 /* WBJobRecordWriteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE81321D39D7100B79700 /* WBJobRecordWriteManager.m */; };
+		C1CEE81A21D39D7100B79700 /* WBJobRecordLogOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE81521D39D7100B79700 /* WBJobRecordLogOperation.m */; };
+		C1CEE81B21D39D7100B79700 /* WBJobRecordReadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE81621D39D7100B79700 /* WBJobRecordReadManager.m */; };
+		C1CEE81C21D39D7100B79700 /* WBJobRecordLog.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE81821D39D7100B79700 /* WBJobRecordLog.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C1CEE7F721D39D4900B79700 /* WBJobRecordLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBJobRecordLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1CEE7FA21D39D4900B79700 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C1CEE7FB21D39D4900B79700 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C1CEE7FD21D39D4900B79700 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C1CEE7FE21D39D4900B79700 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C1CEE80321D39D4C00B79700 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C1CEE80621D39D4C00B79700 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C1CEE80821D39D4C00B79700 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1CEE80921D39D4C00B79700 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C1CEE81121D39D7100B79700 /* WBJobRecordLogOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBJobRecordLogOperation.h; sourceTree = "<group>"; };
+		C1CEE81221D39D7100B79700 /* WBJobRecordReadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBJobRecordReadManager.h; sourceTree = "<group>"; };
+		C1CEE81321D39D7100B79700 /* WBJobRecordWriteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBJobRecordWriteManager.m; sourceTree = "<group>"; };
+		C1CEE81421D39D7100B79700 /* WBJobRecordLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBJobRecordLog.h; sourceTree = "<group>"; };
+		C1CEE81521D39D7100B79700 /* WBJobRecordLogOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBJobRecordLogOperation.m; sourceTree = "<group>"; };
+		C1CEE81621D39D7100B79700 /* WBJobRecordReadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBJobRecordReadManager.m; sourceTree = "<group>"; };
+		C1CEE81721D39D7100B79700 /* WBJobRecordWriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBJobRecordWriteManager.h; sourceTree = "<group>"; };
+		C1CEE81821D39D7100B79700 /* WBJobRecordLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBJobRecordLog.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C1CEE7F421D39D4900B79700 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1CEE7EE21D39D4900B79700 = {
+			isa = PBXGroup;
+			children = (
+				C1CEE7F921D39D4900B79700 /* WBJobRecordLog */,
+				C1CEE7F821D39D4900B79700 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C1CEE7F821D39D4900B79700 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1CEE7F721D39D4900B79700 /* WBJobRecordLog.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C1CEE7F921D39D4900B79700 /* WBJobRecordLog */ = {
+			isa = PBXGroup;
+			children = (
+				C1CEE7FA21D39D4900B79700 /* AppDelegate.h */,
+				C1CEE7FB21D39D4900B79700 /* AppDelegate.m */,
+				C1CEE81021D39D7100B79700 /* WBJobRecordLog */,
+				C1CEE7FD21D39D4900B79700 /* ViewController.h */,
+				C1CEE7FE21D39D4900B79700 /* ViewController.m */,
+				C1CEE80321D39D4C00B79700 /* Assets.xcassets */,
+				C1CEE80521D39D4C00B79700 /* LaunchScreen.storyboard */,
+				C1CEE80821D39D4C00B79700 /* Info.plist */,
+				C1CEE80921D39D4C00B79700 /* main.m */,
+			);
+			path = WBJobRecordLog;
+			sourceTree = "<group>";
+		};
+		C1CEE81021D39D7100B79700 /* WBJobRecordLog */ = {
+			isa = PBXGroup;
+			children = (
+				C1CEE81421D39D7100B79700 /* WBJobRecordLog.h */,
+				C1CEE81821D39D7100B79700 /* WBJobRecordLog.m */,
+				C1CEE81121D39D7100B79700 /* WBJobRecordLogOperation.h */,
+				C1CEE81521D39D7100B79700 /* WBJobRecordLogOperation.m */,
+				C1CEE81221D39D7100B79700 /* WBJobRecordReadManager.h */,
+				C1CEE81621D39D7100B79700 /* WBJobRecordReadManager.m */,
+				C1CEE81721D39D7100B79700 /* WBJobRecordWriteManager.h */,
+				C1CEE81321D39D7100B79700 /* WBJobRecordWriteManager.m */,
+			);
+			path = WBJobRecordLog;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C1CEE7F621D39D4900B79700 /* WBJobRecordLog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1CEE80D21D39D4C00B79700 /* Build configuration list for PBXNativeTarget "WBJobRecordLog" */;
+			buildPhases = (
+				C1CEE7F321D39D4900B79700 /* Sources */,
+				C1CEE7F421D39D4900B79700 /* Frameworks */,
+				C1CEE7F521D39D4900B79700 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WBJobRecordLog;
+			productName = WBJobRecordLog;
+			productReference = C1CEE7F721D39D4900B79700 /* WBJobRecordLog.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C1CEE7EF21D39D4900B79700 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = huqi;
+				TargetAttributes = {
+					C1CEE7F621D39D4900B79700 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = C1CEE7F221D39D4900B79700 /* Build configuration list for PBXProject "WBJobRecordLog" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C1CEE7EE21D39D4900B79700;
+			productRefGroup = C1CEE7F821D39D4900B79700 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C1CEE7F621D39D4900B79700 /* WBJobRecordLog */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C1CEE7F521D39D4900B79700 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1CEE80721D39D4C00B79700 /* LaunchScreen.storyboard in Resources */,
+				C1CEE80421D39D4C00B79700 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C1CEE7F321D39D4900B79700 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1CEE81C21D39D7100B79700 /* WBJobRecordLog.m in Sources */,
+				C1CEE81A21D39D7100B79700 /* WBJobRecordLogOperation.m in Sources */,
+				C1CEE81B21D39D7100B79700 /* WBJobRecordReadManager.m in Sources */,
+				C1CEE7FF21D39D4900B79700 /* ViewController.m in Sources */,
+				C1CEE81921D39D7100B79700 /* WBJobRecordWriteManager.m in Sources */,
+				C1CEE80A21D39D4C00B79700 /* main.m in Sources */,
+				C1CEE7FC21D39D4900B79700 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C1CEE80521D39D4C00B79700 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C1CEE80621D39D4C00B79700 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C1CEE80B21D39D4C00B79700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C1CEE80C21D39D4C00B79700 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C1CEE80E21D39D4C00B79700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XP4SUK8LLX;
+				INFOPLIST_FILE = WBJobRecordLog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HQ.WBJobRecordLog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C1CEE80F21D39D4C00B79700 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XP4SUK8LLX;
+				INFOPLIST_FILE = WBJobRecordLog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HQ.WBJobRecordLog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C1CEE7F221D39D4900B79700 /* Build configuration list for PBXProject "WBJobRecordLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1CEE80B21D39D4C00B79700 /* Debug */,
+				C1CEE80C21D39D4C00B79700 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1CEE80D21D39D4C00B79700 /* Build configuration list for PBXNativeTarget "WBJobRecordLog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1CEE80E21D39D4C00B79700 /* Debug */,
+				C1CEE80F21D39D4C00B79700 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C1CEE7EF21D39D4900B79700 /* Project object */;
+}
