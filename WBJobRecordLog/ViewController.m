@@ -21,9 +21,24 @@
 }
 
 - (void)testMethod {
-    [WBJobRecordLogShareInstance readMethod];
-    [WBJobRecordLogShareInstance writeMethod];
-    NSLog(@"main go go go");
+    
+    UIButton *buttonRed = [[UIButton alloc] initWithFrame:CGRectMake(50, 200, 50, 50)];
+    buttonRed.backgroundColor = UIColor.redColor;
+    [buttonRed addTarget:self action:@selector(buttonRedClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonRed];
+    
+    UIButton *buttonGreen = [[UIButton alloc] initWithFrame:CGRectMake(150, 200, 50, 50)];
+    buttonGreen.backgroundColor = UIColor.greenColor;
+    [buttonGreen addTarget:self action:@selector(buttonGreenClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:buttonGreen];
+}
+
+- (void)buttonRedClick {
+    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeWriteToROM];
+}
+
+- (void)buttonGreenClick {
+    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeReadFromROM];
 }
 
 - (void)didReceiveMemoryWarning {

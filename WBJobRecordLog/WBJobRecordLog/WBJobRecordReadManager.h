@@ -11,6 +11,6 @@
 
 @interface WBJobRecordReadManager : NSObject
 
-+ (void)readManagerWithHandleType:(WBJobRecordLogHandleType)readHandleType;
+- (instancetype)initWithDelegate:(WBJobRecordLog *)delegate;
 
 @end

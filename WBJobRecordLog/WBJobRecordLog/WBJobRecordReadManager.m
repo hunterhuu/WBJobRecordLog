@@ -10,44 +10,12 @@
 
 @implementation WBJobRecordReadManager
 
-+ (void)readManagerWithHandleType:(WBJobRecordLogHandleType)readHandleType {
-//    WBJobRecordReadManager *manager = [[WBJobRecordReadManager alloc] init];
-    switch (readHandleType) {
-        case WBJobRecordLogHandleTypeRead0:
-        {
-            [self read0];
-        }
-            break;
-        case WBJobRecordLogHandleTypeRead1:
-        {
-            [self read1];
-        }
-            break;
-        case WBJobRecordLogHandleTypeRead2:
-        {
-            [self read2];
-        }
-            break;
-        case WBJobRecordLogHandleTypeRead3:
-        {
-            [self read3];
-        }
-            break;
-        default:
-            break;
+- (instancetype)initWithDelegate:(WBJobRecordLog *)delegate {
+    self = [super init];
+    if (self) {
+        ;
     }
+    return self;
 }
 
-+ (void)read0 {
-    NSLog(@"read0");
-}
-+ (void)read1 {
-    NSLog(@"read1");
-}
-+ (void)read2 {
-    NSLog(@"read2");
-}
-+ (void)read3 {
-    NSLog(@"read3");
-}
 @end

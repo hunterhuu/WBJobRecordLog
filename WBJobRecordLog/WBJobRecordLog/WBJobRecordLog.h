@@ -12,21 +12,15 @@
 
 typedef NS_ENUM(NSInteger, WBJobRecordLogHandleType) {
     WBJobRecordLogHandleTypeNull = 0,
-    WBJobRecordLogHandleTypeRead0,
-    WBJobRecordLogHandleTypeRead1,
-    WBJobRecordLogHandleTypeRead2,
-    WBJobRecordLogHandleTypeRead3,
-    WBJobRecordLogHandleTypeWrite0,
-    WBJobRecordLogHandleTypeWrite1,
-    WBJobRecordLogHandleTypeWrite2,
-    WBJobRecordLogHandleTypeWrite3
+    WBJobRecordLogHandleTypeWriteRecordLog,     //记录日志
+    WBJobRecordLogHandleTypeWriteToROM,         //写到硬盘
+    WBJobRecordLogHandleTypeReadRecordLog,      //读取数据
+    WBJobRecordLogHandleTypeReadFromROM         //从硬盘读取数据
 };
 
 @interface WBJobRecordLog : NSObject
 
 + (instancetype)shareInstance;
-
-- (void)readMethod;
-- (void)writeMethod;
+- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType;
 
 @end

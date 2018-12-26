@@ -23,31 +23,6 @@
 #pragma mark - main
 
 - (void)main {
-    switch (self.handleType) {
-        case WBJobRecordLogHandleTypeNull:
-        {
-                [self WBJobRecordLogHandleTypeNullMethod];
-        }
-            break;
-        case WBJobRecordLogHandleTypeRead0:
-        case WBJobRecordLogHandleTypeRead1:
-        case WBJobRecordLogHandleTypeRead2:
-        case WBJobRecordLogHandleTypeRead3:
-        {
-            [self WBJobRecordLogHandleTypeReadMethod];
-        }
-            break;
-        case WBJobRecordLogHandleTypeWrite0:
-        case WBJobRecordLogHandleTypeWrite1:
-        case WBJobRecordLogHandleTypeWrite2:
-        case WBJobRecordLogHandleTypeWrite3:
-        {
-            [self WBJobRecordLogHandleTypeWriteMethod];
-        }
-            break;
-        default:
-            break;
-    }
     NSLog(@"do something %p", self);
 }
 
@@ -58,12 +33,12 @@
 #pragma mark - method
 
 - (void)WBJobRecordLogHandleTypeNullMethod {
-    NSLog(@"null");
+
 }
 - (void)WBJobRecordLogHandleTypeReadMethod {
-    [WBJobRecordReadManager readManagerWithHandleType:self.handleType];
+
 }
 - (void)WBJobRecordLogHandleTypeWriteMethod {
-    [WBJobRecordWriteManager writeManagerWithHandleType:self.handleType];
+
 }
 @end

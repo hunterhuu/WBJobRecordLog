@@ -11,6 +11,6 @@
 
 @interface WBJobRecordWriteManager : NSObject
 
-+ (void)writeManagerWithHandleType:(WBJobRecordLogHandleType)writeHandleType;
+- (instancetype)initWithDelegate:(WBJobRecordLog *)delegate;
 
 @end

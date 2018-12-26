@@ -8,10 +8,14 @@
 
 #import "WBJobRecordLog.h"
 #import "WBJobRecordLogOperation.h"
+#import "WBJobRecordReadManager.h"
+#import "WBJobRecordWriteManager.h"
 
 @interface WBJobRecordLog ()
 
 @property (nonatomic, strong) NSOperationQueue *WBJobRecordHandleQueue;
+@property (nonatomic, strong) WBJobRecordReadManager *readManager;
+@property (nonatomic, strong) WBJobRecordWriteManager *writeManager;
 
 @end
 
@@ -38,18 +42,20 @@
 - (void)initMethod {
     self.WBJobRecordHandleQueue = [[NSOperationQueue alloc] init];
     self.WBJobRecordHandleQueue.maxConcurrentOperationCount = 1;
+    self.readManager = [[WBJobRecordReadManager alloc] initWithDelegate:self];
+    self.writeManager = [[WBJobRecordWriteManager alloc] initWithDelegate:self];
 }
 
 #pragma mark - method
-- (void)readMethod {
+- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType{
     if (self.WBJobRecordHandleQueue) {
-        [self.WBJobRecordHandleQueue addOperation:[WBJobRecordLogOperation jobRecordLogOperationWithHandleType:WBJobRecordLogHandleTypeRead0]];
+        WBJobRecordLogOperation *operation = [WBJobRecordLogOperation jobRecordLogOperationWithHandleType:0];
+        operation.completionBlock = ^{
+            NSLog(@"gogogo");
+        };
+        [self.WBJobRecordHandleQueue addOperation:operation];
     }
 }
-- (void)writeMethod {
-    if (self.WBJobRecordHandleQueue) {
-        [self.WBJobRecordHandleQueue addOperation:[WBJobRecordLogOperation jobRecordLogOperationWithHandleType:WBJobRecordLogHandleTypeWrite0]];
-    }
-}
+
 
 @end
