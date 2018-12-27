@@ -10,12 +10,36 @@
 
 @implementation WBJobRecordWriteManager
 
-- (instancetype)initWithDelegate:(WBJobRecordLog *)delegate {
-    self = [super init];
-    if (self) {
-        ;
+- (void)invocWithHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData {
+    switch (handleType) {
+        case WBJobRecordLogHandleTypeWriteRecordLog:
+        {
+            [self writeRecordLogWith:handleData];
+        }
+            break;
+        case WBJobRecordLogHandleTypeWriteToROM:
+        {
+            [self writeRecordLogToROM];
+        }
+            break;
+        default:
+            break;
     }
-    return self;
+}
+
+- (void)operationDidCompletionHandleType:(WBJobRecordLogHandleType)handleType {
+    if (self.handleCompletionBlock) {
+        self.handleCompletionBlock(@"well done");
+        self.handleCompletionBlock = nil;
+    }
+}
+
+- (void)writeRecordLogWith:(id)data {
+    NSLog(@"data = %@", data);
+}
+
+- (void)writeRecordLogToROM {
+    
 }
 
 @end

@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "WBJobRecordLog.h"
+#import "WBJobRecordBaseManager.h"
 
 @interface WBJobRecordLogOperation : NSOperation
 
 @property (nonatomic, assign) WBJobRecordLogHandleType handleType;
-
-+ (instancetype)jobRecordLogOperationWithHandleType:(WBJobRecordLogHandleType)handleType;
+@property (nonatomic, strong) id handleData;
+@property (nonatomic, strong) WBJobRecordBaseManager *handleManager;
+@property (nonatomic, copy) void (^handleCompletionBlock)(id);
 
 @end

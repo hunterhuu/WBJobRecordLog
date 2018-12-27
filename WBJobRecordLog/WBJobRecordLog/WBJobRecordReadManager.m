@@ -8,14 +8,39 @@
 
 #import "WBJobRecordReadManager.h"
 
+@interface WBJobRecordReadManager ()
+
+@property (nonatomic, weak) WBJobRecordLog *delegate;
+
+@end
+
 @implementation WBJobRecordReadManager
 
-- (instancetype)initWithDelegate:(WBJobRecordLog *)delegate {
-    self = [super init];
-    if (self) {
-        ;
+
+- (void)invocWithHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData {
+    [super invocWithHandelType:handleType handleData:handleData];
+    switch (handleType) {
+        case WBJobRecordLogHandleTypeReadRecordLog:
+        {
+            [self readRecordLog];
+        }
+            break;
+        case WBJobRecordLogHandleTypeReadFromROM:
+        {
+            [self readFromROM];
+        }
+            break;
+        default:
+            break;
     }
-    return self;
+}
+
+- (void)readRecordLog {
+    
+}
+
+- (void)readFromROM {
+    
 }
 
 @end

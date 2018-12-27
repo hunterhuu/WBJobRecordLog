@@ -6,11 +6,9 @@
 //  Copyright © 2018年 huqi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "WBJobRecordLog.h"
+#import "WBJobRecordBaseManager.h"
 
-@interface WBJobRecordReadManager : NSObject
+@interface WBJobRecordReadManager : WBJobRecordBaseManager
 
-- (instancetype)initWithDelegate:(WBJobRecordLog *)delegate;
 
 @end

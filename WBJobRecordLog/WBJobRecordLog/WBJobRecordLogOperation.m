@@ -7,38 +7,29 @@
 //
 
 #import "WBJobRecordLogOperation.h"
-#import "WBJobRecordReadManager.h"
-#import "WBJobRecordWriteManager.h"
+#import "WBJobRecordBaseManager.h"
 
 @implementation WBJobRecordLogOperation
-
-#pragma mark - init
-
-+ (instancetype)jobRecordLogOperationWithHandleType:(WBJobRecordLogHandleType)handleType {
-    WBJobRecordLogOperation *operation = [[WBJobRecordLogOperation alloc] init];
-    operation.handleType = handleType;
-    return operation;
-}
 
 #pragma mark - main
 
 - (void)main {
-    NSLog(@"do something %p", self);
+    if (self.handleManager) {
+        [self.handleManager invocWithHandelType:self.handleType handleData:self.handleData operationCompletionBlock:self.completionBlock handleCompletionBlock:self.handleCompletionBlock];
+        __weak typeof(self) weakSelf = self;
+        self.completionBlock = ^{
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (strongSelf) {
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [strongSelf.handleManager operationDidCompletionHandleType:strongSelf.handleType];
+                }];
+            }
+        };
+    }
 }
 
-- (void)initMethod {
+- (void)dealloc {
     
 }
-
 #pragma mark - method
-
-- (void)WBJobRecordLogHandleTypeNullMethod {
-
-}
-- (void)WBJobRecordLogHandleTypeReadMethod {
-
-}
-- (void)WBJobRecordLogHandleTypeWriteMethod {
-
-}
 @end

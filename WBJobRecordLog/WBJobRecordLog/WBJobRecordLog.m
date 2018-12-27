@@ -42,20 +42,51 @@
 - (void)initMethod {
     self.WBJobRecordHandleQueue = [[NSOperationQueue alloc] init];
     self.WBJobRecordHandleQueue.maxConcurrentOperationCount = 1;
+    self.recordLogOnROM = [[NSMutableArray alloc] initWithCapacity:40];
     self.readManager = [[WBJobRecordReadManager alloc] initWithDelegate:self];
     self.writeManager = [[WBJobRecordWriteManager alloc] initWithDelegate:self];
 }
 
 #pragma mark - method
-- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType{
+- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData handleCompletionBlock:(void (^)(id))handleCompletionBlock {
     if (self.WBJobRecordHandleQueue) {
-        WBJobRecordLogOperation *operation = [WBJobRecordLogOperation jobRecordLogOperationWithHandleType:0];
-        operation.completionBlock = ^{
-            NSLog(@"gogogo");
-        };
+        WBJobRecordLogOperation *operation = [[WBJobRecordLogOperation alloc] init];
+        operation.handleType = handleType;
+        operation.handleData = handleData;
+        operation.handleManager = [self registedManagerWith:handleType];
+        operation.handleCompletionBlock = handleCompletionBlock;
         [self.WBJobRecordHandleQueue addOperation:operation];
     }
 }
 
+#pragma mark - regist handletype&manager
+- (WBJobRecordBaseManager *)registedManagerWith:(WBJobRecordLogHandleType)handleType {
+    WBJobRecordBaseManager *handleManager = nil;
+    switch (handleType) {
+        case WBJobRecordLogHandleTypeNull:
+            {
+                handleManager = [[WBJobRecordBaseManager alloc] init];
+            }
+            break;
+        case WBJobRecordLogHandleTypeWriteRecordLog:
+        case WBJobRecordLogHandleTypeWriteToROM:
+        {
+            handleManager = self.writeManager;
+        }
+            break;
+        case WBJobRecordLogHandleTypeReadRecordLog:
+        case WBJobRecordLogHandleTypeReadFromROM:
+        {
+            handleManager = self.readManager;
+        }
+            break;
+        default:
+        {
+            handleManager = [[WBJobRecordBaseManager alloc] init];
+        }
+            break;
+    }
+    return handleManager;
+}
 
 @end

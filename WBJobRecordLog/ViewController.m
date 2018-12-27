@@ -34,11 +34,14 @@
 }
 
 - (void)buttonRedClick {
-    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeWriteToROM];
+    NSDictionary *tempDict = @{@"title" : @"hello world"};
+    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeWriteRecordLog handleData:tempDict handleCompletionBlock:^(id data) {
+        NSLog(@"class = %@, %@", [data class], data);
+    }];
 }
 
 - (void)buttonGreenClick {
-    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeReadFromROM];
+//    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeReadFromROM];
 }
 
 - (void)didReceiveMemoryWarning {

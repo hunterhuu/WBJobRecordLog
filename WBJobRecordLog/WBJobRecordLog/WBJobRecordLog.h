@@ -20,7 +20,8 @@ typedef NS_ENUM(NSInteger, WBJobRecordLogHandleType) {
 
 @interface WBJobRecordLog : NSObject
 
-+ (instancetype)shareInstance;
-- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType;
+@property (nonatomic, strong) NSMutableArray *recordLogOnROM;
 
++ (instancetype)shareInstance;
+- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData handleCompletionBlock:(void (^)(id))handleCompletionBlock;
 @end
