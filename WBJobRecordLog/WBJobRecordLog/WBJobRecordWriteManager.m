@@ -29,17 +29,40 @@
 
 - (void)operationDidCompletionHandleType:(WBJobRecordLogHandleType)handleType {
     if (self.handleCompletionBlock) {
-        self.handleCompletionBlock(@"well done");
+        self.handleCompletionBlock(self.completionData);
+        self.completionData = nil;
         self.handleCompletionBlock = nil;
     }
 }
 
 - (void)writeRecordLogWith:(id)data {
-    NSLog(@"data = %@", data);
+    WBJobRecordLog *RL = [self getJobRecordLog];
+    [RL.recordLogOnRAM addObject:data];
+    [self isNeedWriteDataOnROM];
 }
 
 - (void)writeRecordLogToROM {
+    WBJobRecordLog *RL = [self getJobRecordLog];
     
+
+}
+
+
+#pragma mark - needWriteToROM
+- (BOOL)isNeedWriteDataOnROM {
+    BOOL isNeed = NO;
+    WBJobRecordLog *RL = [self getJobRecordLog];
+    if (RL.recordLogOnRAM.count >= RAMMaxNumLog) {
+        [RL jobRecordHandelType:WBJobRecordLogHandleTypeWriteToROM handleData:nil handleCompletionBlock:nil];
+    }
+    return isNeed;
+}
+
+- (WBJobRecordLog *)getJobRecordLog {
+    if (self.delegate && [self.delegate isKindOfClass:WBJobRecordLog.class]) {
+        return (WBJobRecordLog *)self.delegate;
+    }
+    return nil;
 }
 
 @end

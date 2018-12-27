@@ -14,6 +14,7 @@
 @property (nonatomic, copy) void (^handleCompletionBlock)(id);
 @property (nonatomic, copy) void (^operationCompletionBlock)(void);
 @property (nonatomic, weak) WBJobRecordLog* delegate;
+@property (nonatomic, strong) id completionData;
 
 - (instancetype)initWithDelegate:(WBJobRecordLog *)delegate;
 - (void)invocWithHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData;

@@ -22,6 +22,9 @@
 
 - (void)testMethod {
     
+    
+    
+    
     UIButton *buttonRed = [[UIButton alloc] initWithFrame:CGRectMake(50, 200, 50, 50)];
     buttonRed.backgroundColor = UIColor.redColor;
     [buttonRed addTarget:self action:@selector(buttonRedClick) forControlEvents:UIControlEventTouchUpInside];
@@ -34,10 +37,11 @@
 }
 
 - (void)buttonRedClick {
-    NSDictionary *tempDict = @{@"title" : @"hello world"};
-    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeWriteRecordLog handleData:tempDict handleCompletionBlock:^(id data) {
-        NSLog(@"class = %@, %@", [data class], data);
-    }];
+    WBJobRecordLogModel *model = [[WBJobRecordLogModel alloc] init];
+    model.page = @"detail";
+    model.action = @"enter";
+    model.extendParams = @{@"infoid" : @"30523621906346"};
+    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeWriteRecordLog handleData:model handleCompletionBlock:nil];
 }
 
 - (void)buttonGreenClick {

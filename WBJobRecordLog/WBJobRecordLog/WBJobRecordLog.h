@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WBJobRecordLogModel.h"
 
 #define WBJobRecordLogShareInstance [WBJobRecordLog shareInstance]
-
+#define RAMMaxNumLog 2
+#define RLCachePath (NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject)
+#define RLDIR (@"WBJobRecordLogDir");
+#define RLROMFullPath [NSString stringWithFormat:@"%@/%@", RLCachePath, RLDIR];
 typedef NS_ENUM(NSInteger, WBJobRecordLogHandleType) {
     WBJobRecordLogHandleTypeNull = 0,
     WBJobRecordLogHandleTypeWriteRecordLog,     //记录日志
@@ -20,7 +24,7 @@ typedef NS_ENUM(NSInteger, WBJobRecordLogHandleType) {
 
 @interface WBJobRecordLog : NSObject
 
-@property (nonatomic, strong) NSMutableArray *recordLogOnROM;
+@property (nonatomic, strong) NSMutableArray <WBJobRecordLogModel *>*recordLogOnRAM;
 
 + (instancetype)shareInstance;
 - (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData handleCompletionBlock:(void (^)(id))handleCompletionBlock;

@@ -42,7 +42,7 @@
 - (void)initMethod {
     self.WBJobRecordHandleQueue = [[NSOperationQueue alloc] init];
     self.WBJobRecordHandleQueue.maxConcurrentOperationCount = 1;
-    self.recordLogOnROM = [[NSMutableArray alloc] initWithCapacity:40];
+    self.recordLogOnRAM = [[NSMutableArray alloc] initWithCapacity:40];
     self.readManager = [[WBJobRecordReadManager alloc] initWithDelegate:self];
     self.writeManager = [[WBJobRecordWriteManager alloc] initWithDelegate:self];
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C13A000221D4C8F800A1A5D8 /* WBJobRecordLogModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C13A000121D4C8F800A1A5D8 /* WBJobRecordLogModel.m */; };
 		C13AFFFF21D47B5F00A1A5D8 /* WBJobRecordBaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C13AFFFE21D47B5F00A1A5D8 /* WBJobRecordBaseManager.m */; };
 		C1CEE7FC21D39D4900B79700 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE7FB21D39D4900B79700 /* AppDelegate.m */; };
 		C1CEE7FF21D39D4900B79700 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C1CEE7FE21D39D4900B79700 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C13A000021D4C8F800A1A5D8 /* WBJobRecordLogModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBJobRecordLogModel.h; sourceTree = "<group>"; };
+		C13A000121D4C8F800A1A5D8 /* WBJobRecordLogModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBJobRecordLogModel.m; sourceTree = "<group>"; };
 		C13AFFFD21D47B5F00A1A5D8 /* WBJobRecordBaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBJobRecordBaseManager.h; sourceTree = "<group>"; };
 		C13AFFFE21D47B5F00A1A5D8 /* WBJobRecordBaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBJobRecordBaseManager.m; sourceTree = "<group>"; };
 		C1CEE7F721D39D4900B79700 /* WBJobRecordLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WBJobRecordLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +92,8 @@
 			children = (
 				C1CEE81421D39D7100B79700 /* WBJobRecordLog.h */,
 				C1CEE81821D39D7100B79700 /* WBJobRecordLog.m */,
+				C13A000021D4C8F800A1A5D8 /* WBJobRecordLogModel.h */,
+				C13A000121D4C8F800A1A5D8 /* WBJobRecordLogModel.m */,
 				C1CEE81121D39D7100B79700 /* WBJobRecordLogOperation.h */,
 				C1CEE81521D39D7100B79700 /* WBJobRecordLogOperation.m */,
 				C1CEE81221D39D7100B79700 /* WBJobRecordReadManager.h */,
@@ -174,6 +179,7 @@
 				C1CEE81A21D39D7100B79700 /* WBJobRecordLogOperation.m in Sources */,
 				C1CEE81B21D39D7100B79700 /* WBJobRecordReadManager.m in Sources */,
 				C1CEE7FF21D39D4900B79700 /* ViewController.m in Sources */,
+				C13A000221D4C8F800A1A5D8 /* WBJobRecordLogModel.m in Sources */,
 				C13AFFFF21D47B5F00A1A5D8 /* WBJobRecordBaseManager.m in Sources */,
 				C1CEE81921D39D7100B79700 /* WBJobRecordWriteManager.m in Sources */,
 				C1CEE80A21D39D4C00B79700 /* main.m in Sources */,
