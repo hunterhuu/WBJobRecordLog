@@ -10,16 +10,18 @@
 #import "WBJobRecordLogModel.h"
 
 #define WBJobRecordLogShareInstance [WBJobRecordLog shareInstance]
-#define RAMMaxNumLog 2
-#define RLCachePath (NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject)
-#define RLDIR (@"WBJobRecordLogDir");
-#define RLROMFullPath [NSString stringWithFormat:@"%@/%@", RLCachePath, RLDIR];
+#define WBJobRLOnceReadLogNum 5
+#define WBJobRLOnceWriteLogNum 5
+#define WBJobRAMMaxNumLog (WBJobRLOnceReadLogNum + WBJobRLOnceWriteLogNum)
+#define WBJobRLCachePath (NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject)
+#define WBJobRLDIRName (@"WBJobRecordLogDir")
+#define WBJobRLROMFullPath [NSString stringWithFormat:@"%@/%@", WBJobRLCachePath, WBJobRLDIRName]
+
 typedef NS_ENUM(NSInteger, WBJobRecordLogHandleType) {
     WBJobRecordLogHandleTypeNull = 0,
     WBJobRecordLogHandleTypeWriteRecordLog,     //记录日志
     WBJobRecordLogHandleTypeWriteToROM,         //写到硬盘
     WBJobRecordLogHandleTypeReadRecordLog,      //读取数据
-    WBJobRecordLogHandleTypeReadFromROM         //从硬盘读取数据
 };
 
 @interface WBJobRecordLog : NSObject
@@ -27,5 +29,5 @@ typedef NS_ENUM(NSInteger, WBJobRecordLogHandleType) {
 @property (nonatomic, strong) NSMutableArray <WBJobRecordLogModel *>*recordLogOnRAM;
 
 + (instancetype)shareInstance;
-- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData handleCompletionBlock:(void (^)(id))handleCompletionBlock;
+- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData handleCompletionBlock:(void (^)(id completionData))handleCompletionBlock;
 @end

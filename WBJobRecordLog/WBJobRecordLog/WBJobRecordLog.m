@@ -40,6 +40,7 @@
 }
 
 - (void)initMethod {
+    [self checkDIR];
     self.WBJobRecordHandleQueue = [[NSOperationQueue alloc] init];
     self.WBJobRecordHandleQueue.maxConcurrentOperationCount = 1;
     self.recordLogOnRAM = [[NSMutableArray alloc] initWithCapacity:40];
@@ -47,8 +48,16 @@
     self.writeManager = [[WBJobRecordWriteManager alloc] initWithDelegate:self];
 }
 
+- (void)checkDIR {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSLog(@"WBJobRLDIR = %@", WBJobRLROMFullPath);
+    if (![fileManager fileExistsAtPath:WBJobRLROMFullPath]) {
+        [fileManager createDirectoryAtPath:WBJobRLROMFullPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+}
+
 #pragma mark - method
-- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData handleCompletionBlock:(void (^)(id))handleCompletionBlock {
+- (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData handleCompletionBlock:(void (^)(id completionData))handleCompletionBlock {
     if (self.WBJobRecordHandleQueue) {
         WBJobRecordLogOperation *operation = [[WBJobRecordLogOperation alloc] init];
         operation.handleType = handleType;
@@ -75,7 +84,6 @@
         }
             break;
         case WBJobRecordLogHandleTypeReadRecordLog:
-        case WBJobRecordLogHandleTypeReadFromROM:
         {
             handleManager = self.readManager;
         }

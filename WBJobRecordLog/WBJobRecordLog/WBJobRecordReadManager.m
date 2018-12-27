@@ -10,8 +10,6 @@
 
 @interface WBJobRecordReadManager ()
 
-@property (nonatomic, weak) WBJobRecordLog *delegate;
-
 @end
 
 @implementation WBJobRecordReadManager
@@ -23,11 +21,6 @@
         case WBJobRecordLogHandleTypeReadRecordLog:
         {
             [self readRecordLog];
-        }
-            break;
-        case WBJobRecordLogHandleTypeReadFromROM:
-        {
-            [self readFromROM];
         }
             break;
         default:

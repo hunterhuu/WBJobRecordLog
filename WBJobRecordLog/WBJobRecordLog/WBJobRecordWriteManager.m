@@ -44,7 +44,24 @@
 - (void)writeRecordLogToROM {
     WBJobRecordLog *RL = [self getJobRecordLog];
     
-
+    NSMutableArray *needWriteArray = [[NSMutableArray alloc] initWithCapacity:WBJobRLOnceWriteLogNum];
+    
+    NSInteger i = 0;
+    if (RL.recordLogOnRAM.count >= WBJobRLOnceWriteLogNum) {
+        i = RL.recordLogOnRAM.count - WBJobRLOnceWriteLogNum;
+    } else {
+        i = 0;
+    }
+    for (; i < RL.recordLogOnRAM.count; i++) {
+        WBJobRecordLogModel *model = RL.recordLogOnRAM[i];
+        [needWriteArray addObject:model.WBJobRecordLogFormat];
+        [RL.recordLogOnRAM removeObject:model];
+    }
+    if (needWriteArray.count > 0) {
+        NSString *filePath = [NSString stringWithFormat:@"%@/%ld", WBJobRLROMFullPath, (long)[NSDate date].timeIntervalSince1970];
+        NSLog(@"filePath = %@", filePath);
+        [needWriteArray writeToFile:filePath atomically:YES];
+    }
 }
 
 
@@ -52,7 +69,7 @@
 - (BOOL)isNeedWriteDataOnROM {
     BOOL isNeed = NO;
     WBJobRecordLog *RL = [self getJobRecordLog];
-    if (RL.recordLogOnRAM.count >= RAMMaxNumLog) {
+    if (RL.recordLogOnRAM.count >= WBJobRAMMaxNumLog) {
         [RL jobRecordHandelType:WBJobRecordLogHandleTypeWriteToROM handleData:nil handleCompletionBlock:nil];
     }
     return isNeed;

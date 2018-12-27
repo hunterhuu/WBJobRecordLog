@@ -45,7 +45,9 @@
 }
 
 - (void)buttonGreenClick {
-//    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeReadFromROM];
+    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeReadRecordLog handleData:nil handleCompletionBlock:^(id completionData) {
+        NSLog(@"completionData = %@", completionData);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

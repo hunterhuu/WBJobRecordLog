@@ -14,5 +14,6 @@
 @property (nonatomic, copy) NSString *action;
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, strong) NSDictionary *extendParams;
+@property (nonatomic, copy) NSString *WBJobRecordLogFormat;
 
 @end
