@@ -11,6 +11,7 @@
 @implementation WBJobRecordWriteManager
 
 - (void)invocWithHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData {
+    [super invocWithHandelType:handleType handleData:handleData];
     switch (handleType) {
         case WBJobRecordLogHandleTypeWriteRecordLog:
         {
@@ -27,18 +28,21 @@
     }
 }
 
-- (void)operationDidCompletionHandleType:(WBJobRecordLogHandleType)handleType {
-    if (self.handleCompletionBlock) {
-        self.handleCompletionBlock(self.completionData);
-        self.completionData = nil;
-        self.handleCompletionBlock = nil;
-    }
-}
+//- (void)operationDidCompletionHandleType:(WBJobRecordLogHandleType)handleType {
+//    if (self.handleCompletionBlock) {
+//        self.handleCompletionBlock(self.completionData);
+//        self.completionData = nil;
+//        self.handleCompletionBlock = nil;
+//    }
+//}
 
 - (void)writeRecordLogWith:(id)data {
     WBJobRecordLog *RL = [self getJobRecordLog];
-    [RL.recordLogOnRAM addObject:data];
-    [self isNeedWriteDataOnROM];
+    if (data && [data isKindOfClass:WBJobRecordLogModel.class]) {
+        WBJobRecordLogModel *model = data;
+        [RL.recordLogOnRAM addObject:model.WBJobRecordLogFormat];
+        [self isNeedWriteDataOnROM];
+    }
 }
 
 - (void)writeRecordLogToROM {
@@ -46,19 +50,16 @@
     
     NSMutableArray *needWriteArray = [[NSMutableArray alloc] initWithCapacity:WBJobRLOnceWriteLogNum];
     
-    NSInteger i = 0;
-    if (RL.recordLogOnRAM.count >= WBJobRLOnceWriteLogNum) {
-        i = RL.recordLogOnRAM.count - WBJobRLOnceWriteLogNum;
-    } else {
-        i = 0;
+    NSInteger minTop = ((RL.recordLogOnRAM.count < WBJobRLOnceWriteLogNum) ? RL.recordLogOnRAM.count : WBJobRLOnceWriteLogNum);
+    
+    for (NSInteger i = 0; i < minTop; i++) {
+        NSString *logFormatString = RL.recordLogOnRAM.firstObject;
+        [needWriteArray addObject:logFormatString];
+        [RL.recordLogOnRAM removeObject:logFormatString];
     }
-    for (; i < RL.recordLogOnRAM.count; i++) {
-        WBJobRecordLogModel *model = RL.recordLogOnRAM[i];
-        [needWriteArray addObject:model.WBJobRecordLogFormat];
-        [RL.recordLogOnRAM removeObject:model];
-    }
+    
     if (needWriteArray.count > 0) {
-        NSString *filePath = [NSString stringWithFormat:@"%@/%ld", WBJobRLROMFullPath, (long)[NSDate date].timeIntervalSince1970];
+        NSString *filePath = [NSString stringWithFormat:@"%@/%ld", WBJobRLROMFullPath, (long)([NSDate date].timeIntervalSince1970 * 1000)];
         NSLog(@"filePath = %@", filePath);
         [needWriteArray writeToFile:filePath atomically:YES];
     }
@@ -73,13 +74,6 @@
         [RL jobRecordHandelType:WBJobRecordLogHandleTypeWriteToROM handleData:nil handleCompletionBlock:nil];
     }
     return isNeed;
-}
-
-- (WBJobRecordLog *)getJobRecordLog {
-    if (self.delegate && [self.delegate isKindOfClass:WBJobRecordLog.class]) {
-        return (WBJobRecordLog *)self.delegate;
-    }
-    return nil;
 }
 
 @end

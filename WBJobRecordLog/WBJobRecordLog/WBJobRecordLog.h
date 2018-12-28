@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, WBJobRecordLogHandleType) {
 
 @interface WBJobRecordLog : NSObject
 
-@property (nonatomic, strong) NSMutableArray <WBJobRecordLogModel *>*recordLogOnRAM;
+@property (nonatomic, strong) NSMutableArray <NSString *>*recordLogOnRAM;
 
 + (instancetype)shareInstance;
 - (void)jobRecordHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData handleCompletionBlock:(void (^)(id completionData))handleCompletionBlock;

@@ -17,6 +17,8 @@
 @property (nonatomic, strong) id completionData;
 
 - (instancetype)initWithDelegate:(WBJobRecordLog *)delegate;
+- (WBJobRecordLog *)getJobRecordLog;
+
 - (void)invocWithHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData;
 
 - (void)invocWithHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData operationCompletionBlock:(void (^)(void))operationCompletionBlock handleCompletionBlock:(void (^)(id))handleCompletionBlock;

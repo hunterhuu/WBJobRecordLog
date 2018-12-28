@@ -15,16 +15,17 @@
 
 - (void)main {
     if (self.handleManager) {
-        [self.handleManager invocWithHandelType:self.handleType handleData:self.handleData operationCompletionBlock:self.completionBlock handleCompletionBlock:self.handleCompletionBlock];
         __weak typeof(self) weakSelf = self;
+        __strong typeof(weakSelf) strongSelf = weakSelf;
         self.completionBlock = ^{
-            __strong typeof(weakSelf) strongSelf = weakSelf;
             if (strongSelf) {
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     [strongSelf.handleManager operationDidCompletionHandleType:strongSelf.handleType];
                 }];
             }
         };
+        [self.handleManager invocWithHandelType:self.handleType handleData:self.handleData operationCompletionBlock:self.completionBlock handleCompletionBlock:self.handleCompletionBlock];
+
     }
 }
 

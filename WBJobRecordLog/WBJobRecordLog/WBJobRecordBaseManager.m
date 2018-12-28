@@ -20,7 +20,7 @@
 }
 
 - (void)invocWithHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData {
-    
+    self.completionData = nil;
 }
 
 - (void)invocWithHandelType:(WBJobRecordLogHandleType)handleType handleData:(id)handleData operationCompletionBlock:(void (^)(void))operationCompletionBlock handleCompletionBlock:(void (^)(id))handleCompletionBlock {
@@ -29,10 +29,22 @@
 }
 
 - (void)operationDidCompletionHandleType:(WBJobRecordLogHandleType)handleType {
-
+    if (self.handleCompletionBlock) {
+        self.handleCompletionBlock(self.completionData);
+        self.completionData = nil;
+        self.handleCompletionBlock = nil;
+    }
 }
 
 - (void)handleDidCompletion:(id)completionData {
     
 }
+
+- (WBJobRecordLog *)getJobRecordLog {
+    if (self.delegate && [self.delegate isKindOfClass:WBJobRecordLog.class]) {
+        return (WBJobRecordLog *)self.delegate;
+    }
+    return nil;
+}
+
 @end

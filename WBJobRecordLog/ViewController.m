@@ -21,10 +21,7 @@
 }
 
 - (void)testMethod {
-    
-    
-    
-    
+
     UIButton *buttonRed = [[UIButton alloc] initWithFrame:CGRectMake(50, 200, 50, 50)];
     buttonRed.backgroundColor = UIColor.redColor;
     [buttonRed addTarget:self action:@selector(buttonRedClick) forControlEvents:UIControlEventTouchUpInside];
@@ -36,12 +33,16 @@
     [self.view addSubview:buttonGreen];
 }
 
+static NSInteger _increatIndex = 0;
 - (void)buttonRedClick {
     WBJobRecordLogModel *model = [[WBJobRecordLogModel alloc] init];
     model.page = @"detail";
     model.action = @"enter";
-    model.extendParams = @{@"infoid" : @"30523621906346"};
-    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeWriteRecordLog handleData:model handleCompletionBlock:nil];
+    model.extendParams = @{@"infoid" : [NSString stringWithFormat:@"%ld", _increatIndex]};
+    _increatIndex ++;
+    [WBJobRecordLogShareInstance jobRecordHandelType:WBJobRecordLogHandleTypeWriteRecordLog handleData:model handleCompletionBlock:^(id completionData) {
+        NSLog(@"completionData = %@", completionData);
+    }];
 }
 
 - (void)buttonGreenClick {
