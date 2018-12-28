@@ -10,6 +10,7 @@
 #import "WBJobRecordLogOperation.h"
 #import "WBJobRecordReadManager.h"
 #import "WBJobRecordWriteManager.h"
+#import "AppDelegate.h"
 
 @interface WBJobRecordLog ()
 
@@ -46,6 +47,11 @@
     self.recordLogOnRAM = [[NSMutableArray alloc] initWithCapacity:40];
     self.readManager = [[WBJobRecordReadManager alloc] initWithDelegate:self];
     self.writeManager = [[WBJobRecordWriteManager alloc] initWithDelegate:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
+- (void)applicationDidEnterBackground {
+    [self jobRecordHandelType:WBJobRecordLogHandleTypeWriteAllLogToROM handleData:nil handleCompletionBlock:nil];
 }
 
 - (void)checkDIR {
@@ -78,7 +84,8 @@
             }
             break;
         case WBJobRecordLogHandleTypeWriteRecordLog:
-        case WBJobRecordLogHandleTypeWriteToROM:
+        case WBJobRecordLogHandleTypeWriteOneDozenToROM:
+        case WBJobRecordLogHandleTypeWriteAllLogToROM:
         {
             handleManager = self.writeManager;
         }
@@ -95,6 +102,10 @@
             break;
     }
     return handleManager;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

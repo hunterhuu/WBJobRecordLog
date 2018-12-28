@@ -20,8 +20,9 @@
 typedef NS_ENUM(NSInteger, WBJobRecordLogHandleType) {
     WBJobRecordLogHandleTypeNull = 0,
     WBJobRecordLogHandleTypeWriteRecordLog,     //记录日志
-    WBJobRecordLogHandleTypeWriteToROM,         //写到硬盘
-    WBJobRecordLogHandleTypeReadRecordLog,      //读取数据
+    WBJobRecordLogHandleTypeWriteOneDozenToROM, //写一组log到硬盘
+    WBJobRecordLogHandleTypeWriteAllLogToROM,   //写全部log到硬盘
+    WBJobRecordLogHandleTypeReadRecordLog      //读取数据
 };
 
 @interface WBJobRecordLog : NSObject

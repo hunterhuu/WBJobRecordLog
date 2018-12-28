@@ -53,6 +53,9 @@
     fileList = nil;
 
     WBJobRecordLog *RL = [self getJobRecordLog];
+    if (RL.recordLogOnRAM.count == 0) {
+        self.outData = NO;
+    }
     if (sortedList && (!self.outData)) {
         for (NSString *fileName in sortedList) {
             if (RL.recordLogOnRAM.count < WBJobRLOnceReadLogNum) {

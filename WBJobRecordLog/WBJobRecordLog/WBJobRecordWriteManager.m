@@ -18,23 +18,19 @@
             [self writeRecordLogWith:handleData];
         }
             break;
-        case WBJobRecordLogHandleTypeWriteToROM:
+        case WBJobRecordLogHandleTypeWriteOneDozenToROM:
         {
             [self writeRecordLogToROM];
+        }
+        case WBJobRecordLogHandleTypeWriteAllLogToROM:
+        {
+            [self writeRecordAllLogToROM];
         }
             break;
         default:
             break;
     }
 }
-
-//- (void)operationDidCompletionHandleType:(WBJobRecordLogHandleType)handleType {
-//    if (self.handleCompletionBlock) {
-//        self.handleCompletionBlock(self.completionData);
-//        self.completionData = nil;
-//        self.handleCompletionBlock = nil;
-//    }
-//}
 
 - (void)writeRecordLogWith:(id)data {
     WBJobRecordLog *RL = [self getJobRecordLog];
@@ -58,22 +54,32 @@
         [RL.recordLogOnRAM removeObject:logFormatString];
     }
     
-    if (needWriteArray.count > 0) {
-        NSString *filePath = [NSString stringWithFormat:@"%@/%ld", WBJobRLROMFullPath, (long)([NSDate date].timeIntervalSince1970 * 1000)];
-        NSLog(@"filePath = %@", filePath);
-        [needWriteArray writeToFile:filePath atomically:YES];
-    }
+    [self writeToFileWithArray:needWriteArray];
 }
 
+- (void)writeRecordAllLogToROM {
+    WBJobRecordLog *RL = [self getJobRecordLog];
+    NSMutableArray *needWriteArray = RL.recordLogOnRAM.mutableCopy;
+    [RL.recordLogOnRAM removeAllObjects];
+    [self writeToFileWithArray:needWriteArray];
+}
 
 #pragma mark - needWriteToROM
 - (BOOL)isNeedWriteDataOnROM {
     BOOL isNeed = NO;
     WBJobRecordLog *RL = [self getJobRecordLog];
     if (RL.recordLogOnRAM.count >= WBJobRAMMaxNumLog) {
-        [RL jobRecordHandelType:WBJobRecordLogHandleTypeWriteToROM handleData:nil handleCompletionBlock:nil];
+        [RL jobRecordHandelType:WBJobRecordLogHandleTypeWriteOneDozenToROM handleData:nil handleCompletionBlock:nil];
     }
     return isNeed;
 }
 
+#pragma mark - writeFile
+- (void)writeToFileWithArray:(NSArray *)fileArray {
+    if (fileArray.count > 0) {
+        NSString *filePath = [NSString stringWithFormat:@"%@/%.0f", WBJobRLROMFullPath, ([NSDate date].timeIntervalSince1970 * 7000)];
+//        NSLog(@"filePath = %@", filePath);
+        [fileArray writeToFile:filePath atomically:YES];
+    }
+}
 @end
